@@ -39,6 +39,14 @@ public class DetailActivity extends Activity {
         nameText.setText(inputName);
         numberText.setText(inputNumber);
 
+        Button favouriteButton = (Button) findViewById(R.id.favouriteButton);
+        favouriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayUtils.writeOnSharedPreferences(inputNumber,DetailActivity.this);
+            }
+        });
+
         Button backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

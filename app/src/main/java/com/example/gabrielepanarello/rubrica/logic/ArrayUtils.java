@@ -20,6 +20,8 @@ public class ArrayUtils {
 
     public static void init(){
         List<Contact> lsTmp = new ArrayList<Contact>();
+        lsTmp.add(new Contact(01,"Mambo Losco","392123455"));
+        lsTmp.add(new Contact(02,"Edo Fendi","3211234556"));
         Main_Singleton.getInstance().setContactList(lsTmp);
     }
 
@@ -47,12 +49,12 @@ public class ArrayUtils {
     public static void writeOnSharedPreferences(String number, Context context){
         SharedPreferences sharedPref = context.getSharedPreferences("favourites",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("favourites",number);
+        editor.putString("favourites_key",number);
         editor.commit();
     }
 
     public static String readOnSharedPreferences(Context context){
         SharedPreferences sharedPref = context.getSharedPreferences("favourites",Context.MODE_PRIVATE);
-        return sharedPref.getString("favourites","");
+        return sharedPref.getString("favourites_key",null);
     }
 }

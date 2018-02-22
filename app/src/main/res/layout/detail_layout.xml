@@ -42,12 +42,21 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/backButton"
+            android:id="@+id/favouriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/textFavouriteButton"
             />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/textBackButton"
+            />
+
 
     </LinearLayout>
 </RelativeLayout>

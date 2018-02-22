@@ -25,7 +25,7 @@ import java.util.List;
 public class CustomArrayAdapter extends ArrayAdapter<Contact> {
 
     private final Context context;
-    private final List<Contact> values;
+    private List<Contact> values;
 
 
     public CustomArrayAdapter(Context context, List<Contact> values) {
@@ -44,7 +44,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Contact> {
     public View getViewOptimize(int position, View convertView, ViewGroup parent) {
 
         String favouriteRef = ArrayUtils.readOnSharedPreferences(this.context);
-        Log.d("Favourite","String OUT "+ favouriteRef);
+        Log.d("Favourite", "String OUT " + favouriteRef);
         ViewHolder viewHolder = null;
 
         if (convertView == null) {
@@ -65,13 +65,11 @@ public class CustomArrayAdapter extends ArrayAdapter<Contact> {
         Contact contatto = getItem(position);
         viewHolder.name.setText(contatto.getName());
         viewHolder.number.setText(contatto.getNumber());
-        viewHolder.contactImg.setBackgroundColor(ArrayUtils.getColorForPosition(context,position));
+        viewHolder.contactImg.setBackgroundColor(ArrayUtils.getColorForPosition(context, position));
 
-        if(favouriteRef != ""){
-            if(contatto.getNumber().equals(favouriteRef)) {
-                viewHolder.favourite.setVisibility(View.VISIBLE);
-            }
-        }else{
+        if (favouriteRef != "" && contatto.getNumber().equals(favouriteRef)) {
+            viewHolder.favourite.setVisibility(View.VISIBLE);
+        } else {
             viewHolder.favourite.setVisibility(View.INVISIBLE);
         }
 
